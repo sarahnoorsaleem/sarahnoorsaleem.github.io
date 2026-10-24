@@ -1,0 +1,195 @@
+/* Minimal clean layout inspired by academic profile pages */
+:root{
+  --text:#111;
+  --muted:#4660c6; /* link blue */
+  --subtle:#666;
+  --border:#e6e6e6;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  color:var(--text);
+  background:#fff;
+  line-height:1.65;
+}
+.wrap{max-width:1100px;margin:40px auto;padding:0 20px}
+.site-header .name{font-weight:500;letter-spacing:.2px;margin:0 0 24px}
+.site-header .name a{text-decoration:none;color:var(--muted)}
+.grid{
+  display:grid;
+  grid-template-columns:300px 1fr;
+  gap:48px;
+  align-items:start;
+}
+.photo img{
+  width:100%;
+  max-width:330px;
+  height:auto;
+  border-radius:6px;
+  display:block;
+  box-shadow:0 2px 12px rgba(0,0,0,.06);
+  cursor: default;     /* was pointer */
+  opacity: 1;          /* was 0.9 */
+  transition: none;    /* no hover cue */
+}
+.left .links{margin-top:12px;display:flex;flex-direction:column;gap:8px}
+.left .links a{color:var(--muted);text-decoration:none}
+.left .links a:hover{text-decoration:underline}
+.right p{margin-top:0}
+h2{color:var(--muted);font-weight:500;margin-top:28px;margin-bottom:12px}
+.updates{list-style:none;padding:0;margin:0}
+.updates li{padding:10px 0;border-bottom:1px solid var(--border)}
+.updates time{color:var(--muted);margin-right:8px;white-space:nowrap}
+
+.timeline{display:flex;gap:40px;flex-wrap:wrap;margin-top:24px}
+.org{display:flex;align-items:center;gap:12px}
+.org img{width:110px;height:auto;filter:grayscale(20%)}
+.org-name{font-weight:500}
+.org-years{font-size:.9rem;color:var(--subtle)}
+
+.site-footer{margin:36px 0 12px;color:var(--subtle);font-size:.95rem;border-top:1px solid var(--border);padding-top:12px}
+
+@media (max-width:900px){
+  .grid{grid-template-columns:1fr}
+  .left{order:1}
+  .right{order:2}
+}
+/* Keep affiliation logos undistorted */
+.timeline .org-logos img{
+  width:auto !important;      /* override the 110px width */
+  height:auto;                /* keep aspect ratio */
+  max-height:80px;            /* control size without stretching */
+  object-fit:contain;
+  filter:none;                /* keep original colours */
+}
+.timeline .org-logos > div{
+  text-align:center;
+  flex:1 1 220px;
+  margin-bottom:30px;
+}
+.icon-links{display:flex;gap:14px;align-items:center;margin-top:12px}
+.icon-links a{display:inline-flex}
+.icon-links img{height:30px;width:auto;display:block}
+.left .icon-links{justify-content:center}
+
+.education h2 {
+  color: var(--muted);
+  font-weight: 500;
+  margin-top: 28px;
+  margin-bottom: 12px;
+  font-size: 1.2rem;
+  padding-left: 22px;
+}
+
+.education ul {
+  list-style: disc;
+  padding-left: 22px;  /* aligns bullets under the heading */
+  margin: 0;
+}
+
+.right p {
+  margin-top: 4px;   /* smaller gap above */
+  margin-bottom: 4px; /* smaller gap below */
+}
+.left {
+  background-color: #fafafa;   /* subtle light gray */
+  padding: 20px;              /* add space inside */
+  border-radius: 6px;          /* optional: rounded corners */
+}
+/* --- Gallery Styles --- */
+.g-wrap {
+  max-width: 1100px;
+  margin: 32px auto;
+  padding: 0 20px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 14px;
+}
+
+.gallery-item img{
+  width:150px !important;     /* force same width */
+  height:100px !important;    /* force same height */
+  object-fit:cover;           /* crop without distortion */
+  display:block;
+  border-radius:4px;
+  transition:transform .2s;
+  margin:0 auto;              /* center */
+}
+
+
+.caption {
+  text-align: center;
+  font-size: .9rem;
+  margin-top: 6px;
+}
+
+.site-header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0;     /* no extra gap below name */
+  color: #2a52be;
+}
+
+.site-header h2 {
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin-top: 0.1em;    /* tiny gap above */
+  margin-bottom: 0;     /* no gap below */
+  color: #444;
+}
+
+.projects h2 {
+  color: var(--muted);
+  font-weight: 500;
+  margin-top: 28px;
+  margin-bottom: 12px;
+  font-size: 1.2rem;
+  padding-left: 22px;
+}
+
+.projects ul {
+  list-style: disc;
+  padding-left: 22px;
+  margin: 0;
+}
+
+.projects li {
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+/* Theme list */
+.theme-list {
+  list-style: disc;
+  padding-left: 1.25rem;
+}
+
+.theme-list li + li {
+  margin-top: 0.25rem;
+}
+
+.org-logos {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two equal columns */
+  gap: 40px;                      /* Space between items */
+  margin-top: 20px;
+  width: 100%;
+}
+
+.timeline .org-logos > div {
+  margin-bottom: 0; /* Remove old margin, let Grid handle gaps */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Horizontally center content */
+  justify-content: flex-start;
+}
+
+@media (max-width: 600px) {
+  .org-logos {
+    grid-template-columns: 1fr;
+  }
+}
