@@ -1,77 +1,144 @@
-/* Minimal clean layout inspired by academic profile pages */
-:root{
-  --text:#111;
-  --muted:#4660c6; /* link blue */
-  --subtle:#666;
-  --border:#e6e6e6;
-}
-*{box-sizing:border-box}
-html,body{margin:0;padding:0}
-body{
-  font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-  color:var(--text);
-  background:#fff;
-  line-height:1.65;
-}
-.wrap{max-width:1100px;margin:40px auto;padding:0 20px}
-.site-header .name{font-weight:500;letter-spacing:.2px;margin:0 0 24px}
-.site-header .name a{text-decoration:none;color:var(--muted)}
-.grid{
-  display:grid;
-  grid-template-columns:300px 1fr;
-  gap:48px;
-  align-items:start;
-}
-.photo img{
-  width:100%;
-  max-width:330px;
-  height:auto;
-  border-radius:6px;
-  display:block;
-  box-shadow:0 2px 12px rgba(0,0,0,.06);
-  cursor: default;     /* was pointer */
-  opacity: 1;          /* was 0.9 */
-  transition: none;    /* no hover cue */
-}
-.left .links{margin-top:12px;display:flex;flex-direction:column;gap:8px}
-.left .links a{color:var(--muted);text-decoration:none}
-.left .links a:hover{text-decoration:underline}
-.right p{margin-top:0}
-h2{color:var(--muted);font-weight:500;margin-top:28px;margin-bottom:12px}
-.updates{list-style:none;padding:0;margin:0}
-.updates li{padding:10px 0;border-bottom:1px solid var(--border)}
-.updates time{color:var(--muted);margin-right:8px;white-space:nowrap}
+/* ===================================================== */
+/* GLOBAL SETTINGS */
+/* ===================================================== */
 
-.timeline{display:flex;gap:40px;flex-wrap:wrap;margin-top:24px}
-.org{display:flex;align-items:center;gap:12px}
-.org img{width:110px;height:auto;filter:grayscale(20%)}
-.org-name{font-weight:500}
-.org-years{font-size:.9rem;color:var(--subtle)}
+:root {
+  --text: #111;
+  --muted: #4660c6;
+  --subtle: #666;
+  --border: #e6e6e6;
+}
 
-.site-footer{margin:36px 0 12px;color:var(--subtle);font-size:.95rem;border-top:1px solid var(--border);padding-top:12px}
+* {
+  box-sizing: border-box;
+}
 
-@media (max-width:900px){
-  .grid{grid-template-columns:1fr}
-  .left{order:1}
-  .right{order:2}
+html,
+body {
+  margin: 0;
+  padding: 0;
 }
-/* Keep affiliation logos undistorted */
-.timeline .org-logos img{
-  width:auto !important;      /* override the 110px width */
-  height:auto;                /* keep aspect ratio */
-  max-height:80px;            /* control size without stretching */
-  object-fit:contain;
-  filter:none;                /* keep original colours */
+
+body {
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text);
+  background: #fff;
+  line-height: 1.65;
 }
-.timeline .org-logos > div{
-  text-align:center;
-  flex:1 1 220px;
-  margin-bottom:30px;
+
+.wrap {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 20px;
 }
-.icon-links{display:flex;gap:14px;align-items:center;margin-top:12px}
-.icon-links a{display:inline-flex}
-.icon-links img{height:30px;width:auto;display:block}
-.left .icon-links{justify-content:center}
+
+
+
+/* ===================================================== */
+/* HEADER */
+/* ===================================================== */
+
+.site-header .name {
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  margin: 0 0 24px;
+}
+
+.site-header .name a {
+  text-decoration: none;
+  color: var(--muted);
+}
+
+.site-header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0;
+  color: #2a52be;
+}
+
+.site-header h2 {
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin-top: 0.1em;
+  margin-bottom: 0;
+  color: #444;
+}
+
+
+
+/* ===================================================== */
+/* MAIN LAYOUT */
+/* ===================================================== */
+
+.grid {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+
+
+/* ===================================================== */
+/* LEFT SIDEBAR */
+/* ===================================================== */
+
+.left {
+  background-color: #fafafa;
+  padding: 20px;
+  border-radius: 6px;
+}
+
+
+
+/* Profile photo */
+
+.photo {
+  margin: 0;
+}
+
+.photo img {
+  width: 100%;
+  max-width: 330px;
+  height: auto;
+  border-radius: 6px;
+  display: block;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  cursor: default;
+  opacity: 1;
+  transition: none;
+}
+
+
+
+/* Contact icons */
+
+.icon-links {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.icon-links a {
+  display: inline-flex;
+}
+
+.icon-links img {
+  height: 30px;
+  width: auto;
+  display: block;
+}
+
+.left .icon-links {
+  justify-content: center;
+}
+
+
+
+/* ===================================================== */
+/* EDUCATION */
+/* ===================================================== */
 
 .education h2 {
   color: var(--muted);
@@ -84,63 +151,15 @@ h2{color:var(--muted);font-weight:500;margin-top:28px;margin-bottom:12px}
 
 .education ul {
   list-style: disc;
-  padding-left: 22px;  /* aligns bullets under the heading */
+  padding-left: 22px;
   margin: 0;
 }
 
-.right p {
-  margin-top: 4px;   /* smaller gap above */
-  margin-bottom: 4px; /* smaller gap below */
-}
-.left {
-  background-color: #fafafa;   /* subtle light gray */
-  padding: 20px;              /* add space inside */
-  border-radius: 6px;          /* optional: rounded corners */
-}
-/* --- Gallery Styles --- */
-.g-wrap {
-  max-width: 1100px;
-  margin: 32px auto;
-  padding: 0 20px;
-}
-
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 14px;
-}
-
-.gallery-item img{
-  width:150px !important;     /* force same width */
-  height:100px !important;    /* force same height */
-  object-fit:cover;           /* crop without distortion */
-  display:block;
-  border-radius:4px;
-  transition:transform .2s;
-  margin:0 auto;              /* center */
-}
 
 
-.caption {
-  text-align: center;
-  font-size: .9rem;
-  margin-top: 6px;
-}
-
-.site-header h1 {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 0;     /* no extra gap below name */
-  color: #2a52be;
-}
-
-.site-header h2 {
-  font-size: 1.2rem;
-  font-weight: 400;
-  margin-top: 0.1em;    /* tiny gap above */
-  margin-bottom: 0;     /* no gap below */
-  color: #444;
-}
+/* ===================================================== */
+/* LEFT-SIDEBAR PROJECTS AND SKILLS */
+/* ===================================================== */
 
 .projects h2 {
   color: var(--muted);
@@ -162,7 +181,30 @@ h2{color:var(--muted);font-weight:500;margin-top:28px;margin-bottom:12px}
   line-height: 1.5;
 }
 
-/* Theme list */
+
+
+/* ===================================================== */
+/* GENERAL HEADINGS AND TEXT */
+/* ===================================================== */
+
+h2 {
+  color: var(--muted);
+  font-weight: 500;
+  margin-top: 28px;
+  margin-bottom: 12px;
+}
+
+.right p {
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+
+
+/* ===================================================== */
+/* THEME LIST */
+/* ===================================================== */
+
 .theme-list {
   list-style: disc;
   padding-left: 1.25rem;
@@ -172,24 +214,268 @@ h2{color:var(--muted);font-weight:500;margin-top:28px;margin-bottom:12px}
   margin-top: 0.25rem;
 }
 
+
+
+/* ===================================================== */
+/* RECENT WORK */
+/* ===================================================== */
+
+.updates {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.updates li {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.updates time {
+  color: var(--muted);
+  margin-right: 8px;
+  white-space: nowrap;
+}
+
+
+
+/* ===================================================== */
+/* GIS AND REMOTE SENSING PORTFOLIO */
+/* ===================================================== */
+
+.portfolio-section {
+  margin-top: 34px;
+}
+
+.portfolio-section h2 {
+  margin-bottom: 6px;
+}
+
+.portfolio-intro {
+  color: var(--subtle);
+  font-size: 0.95rem;
+  margin-bottom: 20px !important;
+}
+
+
+
+/* Two-column gallery */
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+
+
+/* Individual card */
+
+.portfolio-card {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.portfolio-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+
+
+/* Make image links clean */
+
+.portfolio-card > a {
+  display: block;
+  text-decoration: none;
+  background: #fafafa;
+}
+
+
+
+/* Project map image */
+
+.portfolio-card img {
+  width: 100%;
+  height: 240px;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  padding: 8px;
+  background: #fafafa;
+  border-bottom: 1px solid var(--border);
+}
+
+
+
+/* Text area */
+
+.portfolio-content {
+  padding: 15px 16px 17px;
+}
+
+
+
+/* Project title */
+
+.portfolio-content h3 {
+  margin: 0 0 5px;
+  font-size: 1rem;
+  line-height: 1.35;
+  font-weight: 600;
+  color: #222;
+}
+
+
+
+/* Technical categories */
+
+.portfolio-type {
+  color: var(--muted) !important;
+  font-size: 0.82rem;
+  font-weight: 500;
+  line-height: 1.4;
+  margin: 0 0 8px !important;
+}
+
+
+
+/* Project description */
+
+.portfolio-content p:last-child {
+  margin: 0 !important;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #444;
+}
+
+
+
+/* ===================================================== */
+/* TEACHING / LEADERSHIP */
+/* ===================================================== */
+
+.timeline {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.org {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.org img {
+  width: 110px;
+  height: auto;
+  filter: grayscale(20%);
+}
+
+.org-name {
+  font-weight: 500;
+}
+
+.org-years {
+  font-size: 0.9rem;
+  color: var(--subtle);
+}
+
+
+
+/* ===================================================== */
+/* ORGANIZATION LOGOS */
+/* ===================================================== */
+
+.timeline .org-logos img {
+  width: auto !important;
+  height: auto;
+  max-height: 80px;
+  object-fit: contain;
+  filter: none;
+}
+
 .org-logos {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* Two equal columns */
-  gap: 40px;                      /* Space between items */
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
   margin-top: 20px;
   width: 100%;
 }
 
 .timeline .org-logos > div {
-  margin-bottom: 0; /* Remove old margin, let Grid handle gaps */
+  margin-bottom: 0;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Horizontally center content */
+  align-items: center;
   justify-content: flex-start;
+  text-align: center;
+  flex: 1 1 220px;
 }
 
+
+
+/* ===================================================== */
+/* FOOTER */
+/* ===================================================== */
+
+.site-footer {
+  margin: 36px 0 12px;
+  color: var(--subtle);
+  font-size: 0.95rem;
+  border-top: 1px solid var(--border);
+  padding-top: 12px;
+}
+
+
+
+/* ===================================================== */
+/* RESPONSIVE DESIGN */
+/* ===================================================== */
+
+@media (max-width: 900px) {
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .left {
+    order: 1;
+  }
+
+  .right {
+    order: 2;
+  }
+
+}
+
+
+@media (max-width: 700px) {
+
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio-card img {
+    height: auto;
+    max-height: 500px;
+    object-fit: contain;
+  }
+
+}
+
+
 @media (max-width: 600px) {
+
   .org-logos {
     grid-template-columns: 1fr;
   }
+
 }
