@@ -86,9 +86,6 @@ body {
   border-radius: 6px;
 }
 
-
-/* Profile photo */
-
 .photo {
   margin: 0;
 }
@@ -246,17 +243,11 @@ h2 {
   margin-bottom: 20px !important;
 }
 
-
-/* Two-column gallery */
-
 .portfolio-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 22px;
 }
-
-
-/* Individual project card */
 
 .portfolio-card {
   border: 1px solid var(--border);
@@ -273,17 +264,11 @@ h2 {
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
 }
 
-
-/* Project image link */
-
 .portfolio-card > a {
   display: block;
   text-decoration: none;
   background: #fafafa;
 }
-
-
-/* Map image */
 
 .portfolio-card img {
   width: 100%;
@@ -296,15 +281,9 @@ h2 {
   border-bottom: 1px solid var(--border);
 }
 
-
-/* Text area */
-
 .portfolio-content {
   padding: 15px 16px 17px;
 }
-
-
-/* Project title */
 
 .portfolio-content h3 {
   margin: 0 0 5px;
@@ -314,9 +293,6 @@ h2 {
   color: #222;
 }
 
-
-/* Technical categories */
-
 .portfolio-type {
   color: var(--muted) !important;
   font-size: 0.82rem;
@@ -324,9 +300,6 @@ h2 {
   line-height: 1.4;
   margin: 0 0 8px !important;
 }
-
-
-/* Description */
 
 .portfolio-content p:last-child {
   margin: 0 !important;
@@ -352,22 +325,29 @@ h2 {
   margin-bottom: 12px;
 }
 
-
-/* Full-width card using the same style as GIS project cards */
-
 .storymap-wide {
   width: 100%;
   cursor: pointer;
 }
 
 
-/* Preview panel */
+/* Background screenshot with soft overlay */
 
 .storymap-preview {
-  min-height: 180px;
-  padding: 28px 20px;
+  min-height: 240px;
+  padding: 30px 20px;
 
-  background: #fafafa;
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.74),
+      rgba(255, 255, 255, 0.74)
+    ),
+    url("storymap-preview.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
   border-bottom: 1px solid var(--border);
 
   display: flex;
@@ -379,60 +359,53 @@ h2 {
 }
 
 
-/* Small blue StoryMaps label */
+/* StoryMaps label */
 
 .storymap-preview-label {
   color: var(--muted);
   font-size: 0.82rem;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  margin-bottom: 7px;
+  letter-spacing: 0.07em;
+  margin-bottom: 8px;
 }
 
 
-/* Main preview title */
+/* Main title */
 
 .storymap-preview-title {
   color: #222;
-  font-size: 1.35rem;
+  font-size: 1.45rem;
   font-weight: 700;
   line-height: 1.3;
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.9);
 }
 
 
-/* Preview subtitle */
+/* Subtitle */
 
 .storymap-preview-subtitle {
-  color: #555;
-  font-size: 0.95rem;
-  margin-top: 3px;
+  color: #444;
+  font-size: 0.98rem;
+  font-weight: 500;
+  margin-top: 4px;
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.9);
 }
 
 
-/* View link wording */
+/* View StoryMap */
 
 .storymap-preview-action {
   color: var(--muted);
-  font-size: 0.88rem;
-  font-weight: 500;
-  margin-top: 16px;
-}
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-top: 18px;
 
+  padding: 6px 10px;
 
-/* Mobile */
+  background: rgba(255, 255, 255, 0.82);
 
-@media (max-width: 700px) {
-
-  .storymap-preview {
-    min-height: 150px;
-    padding: 22px 16px;
-  }
-
-  .storymap-preview-title {
-    font-size: 1.2rem;
-  }
-
+  border-radius: 4px;
 }
 
 
@@ -546,8 +519,13 @@ h2 {
     object-fit: contain;
   }
 
-  .storymap-content {
-    padding: 16px;
+  .storymap-preview {
+    min-height: 190px;
+    padding: 24px 16px;
+  }
+
+  .storymap-preview-title {
+    font-size: 1.25rem;
   }
 
 }
